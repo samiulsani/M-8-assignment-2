@@ -10,7 +10,7 @@ const closeButton = document.querySelector('.close-button');
 let group = [];
 
 function fetchRandomDrinks(numDrinks = 8) {
-    drinkCardsContainer.innerHTML = ""; // Clear existing cards
+    drinkCardsContainer.innerHTML = "";
     for (let i = 0; i < numDrinks; i++) {
         fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
             .then(response => response.json())
@@ -21,7 +21,7 @@ function fetchRandomDrinks(numDrinks = 8) {
                 }
             }).catch(error => {
                 console.error("Error fetching random drink:", error);
-                if (drinkCardsContainer.innerHTML === "") { // Only show error if no cards have loaded
+                if (drinkCardsContainer.innerHTML === "") { 
                     drinkCardsContainer.innerHTML = "<p>Error fetching drinks. Please try again later.</p>";
                 }
             });
@@ -35,7 +35,7 @@ function fetchDrinks(searchTerm = "") {
         .then(response => response.json())
         .then(data => {
             drinkCardsContainer.innerHTML = "";
-            if (data.drinks === null || data.drinks.length === 0) { // Check for empty results
+            if (data.drinks === null || data.drinks.length === 0) { 
                 drinkCardsContainer.innerHTML = "<p>No drinks found.</p>";
                 return;
             }
@@ -68,7 +68,7 @@ searchButton.addEventListener('click', () => {
     fetchDrinks(searchInput.value);
 });
 
-fetchRandomDrinks(); // Call for initial load
+fetchRandomDrinks();
 
 drinkCardsContainer.addEventListener('click', (event) => {
     if (event.target.classList.contains('add-to-group')) {
@@ -94,7 +94,7 @@ drinkCardsContainer.addEventListener('click', (event) => {
             }).catch(error => {
                 console.error("Error fetching drink details:", error);
                 modalDetails.innerHTML = "<p>Error fetching drink details. Please try again later.</p>";
-                modal.style.display = 'block'; // Show modal even on error
+                modal.style.display = 'block';
             });
     }
 });

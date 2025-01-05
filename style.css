@@ -6,10 +6,43 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 .search-area {
   margin-top: 20px;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
+
+#search {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  width: 300px;
+  outline: none;
+  font-size: 16px;
+}
+
+#search:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+#search-button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+  background-color: #0056b3;
+}
+
 .main-content {
   display: flex;
   width: 90%;
@@ -37,6 +70,7 @@ body {
 .cart-area {
   width: 30%;
   border: 1px solid #ccc;
+  border-radius: 5px;
   padding: 10px;
   margin-left: 20px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
@@ -116,7 +150,6 @@ body {
 }
 
 .add-to-group {
-  /* This was missing! */
   background-color: #007bff;
   border: none;
   color: white;
